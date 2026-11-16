@@ -1,0 +1,19 @@
+/* style.css - bewusst klein und ohne Abhängigkeiten: WABS ist eigenständig und
+   kann auf einem ganz anderen Server als MISS/mv liegen. */
+:root { color-scheme: light dark; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #f4f4f6; color: #222; }
+header.bar { display: flex; gap: 1em; align-items: center; padding: .6em 1em; background: #222; color: #fff; }
+header.bar a { color: #fff; }
+main { padding: 1.2em; max-width: 700px; margin: 0 auto; }
+.card { background: #fff; border-radius: 6px; padding: 1.2em 1.4em; box-shadow: 0 1px 3px rgba(0,0,0,.15); margin-bottom: 1.2em; }
+.login { max-width: 320px; margin: 3em auto; text-align: left; }
+h1 { margin-top: 0; font-size: 1.3em; }
+.muted { color: #666; font-size: .9em; }
+.block { display: block; margin: .8em 0; }
+.block input { display: block; width: 100%; box-sizing: border-box; margin-top: .2em; padding: .4em; }
+button { padding: .5em 1em; margin-top: .6em; cursor: pointer; }
+table { width: 100%; border-collapse: collapse; margin-top: .6em; }
+th, td { text-align: left; padding: .3em .5em; border-bottom: 1px solid #ddd; }
+td.r, th.r { text-align: right; }
+.flash { padding: .5em .8em; border-radius: 4px; margin: .8em 0; }
+.flash.err { background: #fde2e2; color: #7a1414; }

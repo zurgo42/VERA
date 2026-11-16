@@ -1,0 +1,86 @@
+/* beam_style.css - schlankes, eigenständiges Stylesheet für BEAM (siehe
+ * dokumentation/BEAM.md) - dieselben Farbwerte wie neu/style.css, damit
+ * BEAM vertraut aussieht, aber ohne Abhängigkeit von dessen Datei (andere
+ * Verzeichnisebene, eigenständiges Deployment). */
+
+:root {
+    --primary: #005596;
+    --dunkelblau: #005596;
+    --danger: #d32f2f;
+    --success: #4caf50;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #ddd;
+    --primary-lighter: #CEE3F6;
+}
+
+* { box-sizing: border-box; }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0 0 40px;
+}
+header.beam-kopf {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--dunkelblau) 100%);
+    color: white;
+    padding: 14px 20px;
+    margin-bottom: 20px;
+}
+header.beam-kopf h1 { font-size: 19px; margin: 0; }
+header.beam-kopf a { color: white; text-decoration: none; opacity: .9; }
+main.beam-inhalt { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+.btn {
+    display: inline-block;
+    padding: 9px 16px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13.5px;
+    text-decoration: none;
+}
+.btn:hover { background: var(--dunkelblau); }
+.btn-secondary { background: #999; }
+.btn-secondary:hover { background: #777; }
+.btn-danger { background: var(--danger); }
+
+.info-box {
+    background: var(--primary-lighter);
+    border-left: 4px solid var(--primary);
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    color: var(--primary);
+    font-size: 13.5px;
+}
+.info-box.fehler { border-left-color: var(--danger); color: var(--danger); background: #fde2e2; }
+
+.card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+table.beam-tabelle { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.beam-tabelle th, table.beam-tabelle td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--border-color); }
+
+.bs-layout {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    grid-template-areas: "freitext preview" "lists preview";
+    gap: 16px;
+    align-items: start;
+}
+.bs-preview { grid-area: preview; position: sticky; top: 10px; }
+@media (max-width: 760px) {
+    .bs-layout { grid-template-columns: 1fr; grid-template-areas: "freitext" "preview" "lists"; }
+    .bs-preview { position: static; }
+}

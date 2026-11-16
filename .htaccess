@@ -1,0 +1,38 @@
+# ============================================================
+# NOT-SCHALTER WARTUNGSMODUS
+#
+# Umschalten: per wartung_umschalten.php (Admin-Passwort noetig, siehe
+# SYSTEM_ADMIN_PASSWORD in config.php) - legt/loescht die Markierungsdatei
+# wartung.aktiv in diesem Verzeichnis. Funktioniert auch bei einem
+# Datenbank-Ausfall, da dieses Skript selbst keine Datenbank braucht.
+# Alternativ manuell: wartung.aktiv per FTP/Datei-Manager anlegen
+# (beliebiger Inhalt reicht) bzw. loeschen.
+#
+# Wirkung: Ist wartung.aktiv vorhanden, wird JEDE Anfrage in diesem
+# Verzeichnis - unabhängig vom aufgerufenen Skript (index.php, login.php,
+# beamerbild.php, process_*.php, ...) - auf die statische, komplett
+# PHP-freie Seite wartung.html umgeleitet (wartung.html und
+# wartung_umschalten.php selbst bleiben davon ausgenommen, damit sich der
+# Wartungsmodus auch im aktiven Zustand wieder ausschalten laesst).
+#
+# Voraussetzung: mod_rewrite muss aktiv sein und die Apache-Konfiguration
+# muss RewriteRule in .htaccess erlauben (AllowOverride FileInfo oder All)
+# - bei den meisten Vereins-Webhosting-Paketen standardmäßig der Fall. Am
+# besten schon jetzt einmal kurz testweise aktivieren, nicht erst im
+# Ernstfall.
+#
+# WICHTIG: %{DOCUMENT_ROOT} unten setzt voraus, dass DIESES Verzeichnis
+# (mit .htaccess/wartung.aktiv) das Wurzelverzeichnis der Domain IST (so
+# wie nach dem geplanten Umzug) - sonst zeigt der Pfad ins Leere und die
+# Umleitung greift nicht. Liegt die Anwendung (noch) in einem
+# Unterverzeichnis, "%{DOCUMENT_ROOT}" unten durch den tatsaechlichen
+# absoluten Pfad dieses Verzeichnisses ersetzen, z. B.
+# "/var/www/vhosts/.../httpdocs/mv/neu/wartung.aktiv".
+# ============================================================
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !wartung\.html$
+RewriteCond %{REQUEST_URI} !wartung_umschalten\.php$
+RewriteCond %{DOCUMENT_ROOT}/wartung.aktiv -f
+RewriteRule ^ wartung.html [L]

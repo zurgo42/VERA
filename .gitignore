@@ -1,0 +1,20 @@
+# Zugangsdaten und lokale Konfiguration
+config.php
+config_adapter.php
+*.local.php
+.env
+
+# Laufzeitdaten und Uploads
+uploads/
+storage/
+*.log
+
+# Datenbank-Exporte und Archive (koennen echte Mitgliederdaten enthalten)
+sql/
+*.zip
+*backup*.sql
+
+# Erzeugte Dateien des Lasttests
+deploy/__pycache__/
+deploy/lasttest-paket/
+deploy/lasttest-bericht-*.html
