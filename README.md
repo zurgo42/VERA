@@ -65,4 +65,4 @@ Datei `LICENSE`) weitergeben und/oder verändern. Es wird in der Hoffnung bereit
 Wer VERA oder WABS verändert und anderen als Webanwendung zur Verfügung stellt, muss den geänderten Quelltext ebenfalls unter dieser Lizenz zugänglich machen.
 
 Für PDF-Dateien und QR-Codes werden die Bibliotheken FPDF und PHP QR Code benötigt. Sie gehören nicht zu diesem Repository und müssen
-separat bereitgestellt werden (Pfade siehe `dokumentation/Admin-Installationsanleitung.md`).
+separat bereitgestellt werden: Die Anwendung sucht je einen Ordner `fpdf` (mit `fpdf.php`) und `phpqrcode` (mit `qrlib.php`) im Programmordner und bis zu fünf Ebenen darüber. So lassen sich die Bibliotheken mit anderen Anwendungen (KONA, MISS) gemeinsam nutzen.
