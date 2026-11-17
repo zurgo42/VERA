@@ -56,3 +56,13 @@ Eine ausführliche, schrittweise Anleitung – durchgehend am Beispiel eines ein
 ## Hintergrund & Architektur
 
 Warum das Tool so aufgebaut ist, wie es aufgebaut ist (Designentscheidungen, Sicherheits-/Datenschutzprinzipien, die einzelnen Kernprozesse der Antragsverwaltung im Detail): siehe [`dokumentation/Projekt-Dokumentation.md`](../dokumentation/Projekt-Dokumentation.md).
+
+## Lizenz
+Copyright (C) 2026 Hermann Meier
+
+Dieses Programm ist freie Software: Sie können es unter den Bedingungen der **GNU Affero General Public License** (Version 3, siehe
+Datei `LICENSE`) weitergeben und/oder verändern. Es wird in der Hoffnung bereitgestellt, nützlich zu sein, aber **ohne jede Gewährleistung**.
+Wer VERA oder WABS verändert und anderen als Webanwendung zur Verfügung stellt, muss den geänderten Quelltext ebenfalls unter dieser Lizenz zugänglich machen.
+
+Für PDF-Dateien und QR-Codes werden die Bibliotheken FPDF und PHP QR Code benötigt. Sie gehören nicht zu diesem Repository und müssen
+separat bereitgestellt werden (Pfade siehe `dokumentation/Admin-Installationsanleitung.md`).
