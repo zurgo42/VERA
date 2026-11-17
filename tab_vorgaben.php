@@ -168,7 +168,7 @@ $config = get_config($pdo);
     <div class="form-group" style="margin-bottom:14px;">
         <label>Mitgliederquelle</label>
         <select name="mitglieder_quelle" style="max-width:420px; padding:7px 10px;" <?= $config['demo_modus_aktiv'] === '1' ? 'disabled' : '' ?>>
-            <option value="ldap" <?= $config['mitglieder_quelle'] === 'ldap' ? 'selected' : '' ?>>LDAP (Mensa-Bestandssystem)</option>
+            <option value="ldap" <?= $config['mitglieder_quelle'] === 'ldap' ? 'selected' : '' ?>>LDAP (Verzeichnisdienst, Zugang in config.php)</option>
             <option value="tabelle" <?= $config['mitglieder_quelle'] === 'tabelle' ? 'selected' : '' ?>>Lokale Mitgliederstamm-Tabelle</option>
             <option value="svmembers" <?= $config['mitglieder_quelle'] === 'svmembers' ? 'selected' : '' ?>>Tabelle „svmembers“ (gemeinsame Datenbank mit Sitzungs-/Mitgliederverwaltung)</option>
         </select>

@@ -134,7 +134,7 @@ Betreibt Ihr Verein bereits ein eigenes LDAP für die Mitgliederverwaltung, kann
 
 1. Mitgliederquelle auf „LDAP" stellen.
 2. Die LDAP-Zugangsdaten (Bind-Passwort) in `config.php` hinterlegen (Konstante `LDAP_BIND_PASS`, siehe Abschnitt 3).
-3. **Wichtig:** Server-Adresse, Bind-DN und die abgefragten Attributnamen (`givenName`/`sn`/`mail`) sind **fest im Code** hinterlegt, in `mitglieder_functions.php`, Funktion `ldapident_neu()` – ursprünglich für die Mensa-LDAP-Struktur geschrieben (`cn=aktive,ou=applications,dc=mensa,dc=de`). Für jeden anderen Verein mit abweichender Verzeichnisstruktur muss diese Funktion im Code angepasst werden; es gibt dafür keine Admin-Einstellung. Für einen Verein ohne eigenes LDAP (wie den TSV Musterstadt) entfällt dieser Aufwand komplett durch den Standardweg (Abschnitt 5a).
+3. **Wichtig:** Server-Adresse, Bind-DN und Suchbasis tragen Sie in der `config.php` ein (`LDAP_HOST`, `LDAP_BIND_DN`, `LDAP_BIND_PASS`, `LDAP_BASE_DN`, siehe `config_example.php`). Ohne `LDAP_BIND_DN` und `LDAP_BASE_DN` findet keine LDAP-Abfrage statt. Die abgefragten Attributnamen (`givenName`/`sn`/`mail`) und die Suche über `uid` sind **fest im Code** hinterlegt, in `mitglieder_functions.php`, Funktion `ldapident_neu()`. Für ein Verzeichnis mit abweichendem Aufbau muss diese Funktion angepasst werden; es gibt dafür keine Admin-Einstellung. Für einen Verein ohne eigenes LDAP (wie den TSV Musterstadt) entfällt dieser Aufwand komplett durch den Standardweg (Abschnitt 5a).
 
 Ist die PHP-`ldap`-Erweiterung nicht installiert oder der Server nicht erreichbar, bricht die Registrierung **nicht** ab – Vorname/Name/E-Mail bleiben dann leer und können später manuell nachgetragen werden.
 
@@ -370,7 +370,7 @@ Für jede weitere Versammlung (z. B. im Folgejahr) erneut über **Admin-Funktion
 - Logo/Favicon werden nur als Pfad/URL referenziert (kein eigener Datei-Upload dafür) – die Dateien müssen selbst auf den Server gelegt bzw. extern gehostet werden. Echten Datei-Upload gibt es an drei Stellen im Tool: Tagesordnungspunkt-Dokumente (`neu/uploads/<jahr>`), „Unterlagen <Jahr>"-Dokumente und die interne PDF-Ablage bei Anträgen (`docs<jahr>`, nur Redaktion sichtbar).
 - Die Oberfläche ist ausschließlich auf Deutsch (keine Mehrsprachigkeit).
 - Das Antrags-/Abstimmungsverfahren selbst (Mitantragsteller, Unterstützungsschwellen, Stimmungsbild-Sichtbarkeitsregeln) bildet einen bestimmten, in der Praxis verbreiteten Ablauf ab und lässt sich über die Vereinsvorgaben in weiten Teilen anpassen bzw. abschalten (Abschnitt 8) – entspricht die Satzung Ihres Vereins in einzelnen Punkten einem grundlegend anderen Verfahren, das sich nicht über vorhandene Einstellungen abbilden lässt, ist eine Anpassung im Code nötig.
-- Für die LDAP-Mitgliederquelle (Abschnitt 5b) gilt weiterhin: Server-Adresse, Bind-DN und Attributnamen sind fest im Code hinterlegt und müssen bei abweichender Verzeichnisstruktur dort angepasst werden.
+- Für die LDAP-Mitgliederquelle (Abschnitt 5b) gilt weiterhin: Server-Adresse, Bind-DN und Suchbasis stehen in der `config.php` (`LDAP_HOST`, `LDAP_BIND_DN`, `LDAP_BASE_DN`); die Attributnamen sind fest im Code hinterlegt und müssen bei abweichender Verzeichnisstruktur dort angepasst werden.
 
 ## 13. Checkliste für die Ersteinrichtung
 

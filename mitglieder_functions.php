@@ -35,23 +35,24 @@ require_once __DIR__ . '/mitgliederquelle_functions.php'; // fuer mitgliederquel
  */
 function ldapident_neu(string $mnr): array {
     $leer = ['vorname' => '', 'name' => '', 'mail' => ''];
-    if (!function_exists('ldap_connect') || $mnr === '') {
+    // Verzeichnis-Zugang kommt aus config.php (LDAP_HOST, LDAP_BIND_DN, LDAP_BIND_PASS, LDAP_BASE_DN)
+    $ldaptree = defined('LDAP_BIND_DN') ? (string)LDAP_BIND_DN : '';
+    $dn       = defined('LDAP_BASE_DN') ? (string)LDAP_BASE_DN : '';
+    if (!function_exists('ldap_connect') || $mnr === '' || $ldaptree === '' || $dn === '') {
         return $leer;
     }
 
-    $ldapconn = @ldap_connect('localhost');
+    $ldapconn = @ldap_connect(defined('LDAP_HOST') ? (string)LDAP_HOST : 'localhost');
     if (!$ldapconn) {
         return $leer;
     }
     @ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
 
-    $ldaptree = 'cn=aktive,ou=applications,dc=mensa,dc=de';
     $ldappass = defined('LDAP_BIND_PASS') ? LDAP_BIND_PASS : '';
     if (!@ldap_bind($ldapconn, $ldaptree, $ldappass)) {
         return $leer;
     }
 
-    $dn = 'ou=members,dc=mensa,dc=de';
     $filter = '(uid=' . ldap_escape($mnr, '', LDAP_ESCAPE_FILTER) . ')';
     $attribute = ['givenName', 'sn', 'mail'];
 

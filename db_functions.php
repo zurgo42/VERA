@@ -65,7 +65,7 @@ function spalte_existiert(PDO $pdo, string $tabelle, string $spalte): bool {
 
 /** Voreinstellungen, falls ein Schluessel in mvconfig (noch) fehlt. */
 const MV_CONFIG_DEFAULTS = [
-    'vereinsname'                     => 'Mensa in Deutschland e.V.',
+    'vereinsname'                     => 'Musterverein e. V.',
     'mv_bezeichnung'                  => 'Mitgliederversammlung',
     'max_hauptantraege_pro_mitglied'  => '2',
     'unterstuetzung_schwellenwert'    => '10',

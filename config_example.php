@@ -6,8 +6,12 @@ define('MYSQL_USER',     'xxx');
 define('MYSQL_PASS',     'xxx');
 define('MYSQL_DATABASE', 'vera');
 
-// LDAP-Zugangsdaten (bisher hartkodiert in fstandard.php)
+// LDAP-Anbindung (nur noetig bei Mitgliederquelle "ldap"; sonst weglassen).
+// Ohne LDAP_BIND_DN und LDAP_BASE_DN findet keine LDAP-Abfrage statt.
+define('LDAP_HOST',      'localhost');
+define('LDAP_BIND_DN',   'cn=vera,ou=applications,dc=example,dc=org');   // Konto, mit dem VERA das Verzeichnis abfragt
 define('LDAP_BIND_PASS', 'xxx');
+define('LDAP_BASE_DN',   'ou=members,dc=example,dc=org');                // Suchbasis der Mitglieder
 
 // ============================================
 // Optional - wie bei den Schwesterprojekten Sitzungsverwaltung (KONA) und
