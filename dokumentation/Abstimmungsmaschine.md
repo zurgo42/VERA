@@ -4,7 +4,7 @@
 
 Ersatz für autarke Abstimmungsgeräte: Stimmberechtigte stimmen während der laufenden Mitgliederversammlung per Smartphone (eigenes Gerät oder ein für diesen Zweck vorgehaltenes Leihgerät) über einen individuellen QR-Code ab - anonym, aber nachvollziehbar protokolliert.
 
-**Bewusst eigenständig, nichts mit WABS gemeinsam.** WABS (`zurgo42/mitgliederverwaltung`) ist für die satzungsmäßig zugelassene asynchrone Online-Fernwahl gedacht - in Deutschland derzeit eher die Ausnahme. Die Abstimmungsmaschine hier ersetzt dagegen nur die Stimmenauszählung *innerhalb* der physisch stattfindenden Versammlung (vergleichbar mit Handzeichen/Stimmkarten-Auszählung) und ist rechtlich/praktisch eine andere Kategorie. Eigene Tabellen, eigene Token-Logik, kein Code-Austausch mit WABS.
+**Bewusst eigenständig, nichts mit WABS gemeinsam.** WABS (`zurgo42/MISS`) ist für die satzungsmäßig zugelassene asynchrone Online-Fernwahl gedacht - in Deutschland derzeit eher die Ausnahme. Die Abstimmungsmaschine hier ersetzt dagegen nur die Stimmenauszählung *innerhalb* der physisch stattfindenden Versammlung (vergleichbar mit Handzeichen/Stimmkarten-Auszählung) und ist rechtlich/praktisch eine andere Kategorie. Eigene Tabellen, eigene Token-Logik, kein Code-Austausch mit WABS.
 
 **Zentrales Element ist das Beamerbild.** Jeder Antrag/Tagesordnungspunkt hat in VERA bereits ein Beamerbild (`beamer_functions.php`, gesteuert über die Beamersteuerung, `tab_beamersteuerung.php`). Die Abstimmungsseite der Teilnehmer zeigt außerhalb einer laufenden Abstimmung genau dieses Bild - es muss also nie eine eigene "Abstimmungsfolie" erstellt werden, wie es bei autarken Abstimmungsgeräten sonst nötig ist. Antrag und Abstimmung sind dadurch immer unmittelbar verknüpft.
 

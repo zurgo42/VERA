@@ -8,7 +8,7 @@
  * ausdrucken. Bewusst KEIN Bezug zu einer Mitgliedsnummer (anders als beim
  * Login-Modul, siehe login_functions.php) - die Karten werden am Einlass
  * frei aus einem Stapel gewählt, das System muss nie wissen, wer welche
- * Karte hat. Komplett unabhängig von WABS (zurgo42/mitgliederverwaltung) -
+ * Karte hat. Komplett unabhängig von WABS (zurgo42/MISS) -
  * eigene Tabellen, eigene Token-Logik, kein gemeinsamer Code.
  *
  * Phase 2: Abstimmungsrunde durchführen. Es läuft immer höchstens eine Runde

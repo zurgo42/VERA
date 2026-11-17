@@ -1,6 +1,6 @@
 # Wahlserver (WABS)
 
-Eigenständige Anwendung für die anonyme Online-Wahl/-Abstimmung. Baut auf den Tabellen `wabs_elections`/`wabs_tokens` auf, die MISS (Mitgliederverwaltung) per direkter Übertragung oder CSV-Export befüllt (siehe dort [`docs/WABS.md`](https://github.com/zurgo42/mitgliederverwaltung/blob/main/docs/WABS.md)).
+Eigenständige Anwendung für die anonyme Online-Wahl/-Abstimmung. Baut auf den Tabellen `wabs_elections`/`wabs_tokens` auf, die MISS (Mitgliederverwaltung) per direkter Übertragung oder CSV-Export befüllt (siehe dort [`docs/WABS.md`](https://github.com/zurgo42/MISS/blob/main/docs/WABS.md)).
 
 **Status: Grundgerüst (Phase 5).** Login und Datenbankanbindung sind fertig; Wahl-/Abstimmungsinhalte, Token-Einlösung und Auszählung folgen in späteren Ausbaustufen (siehe die Liste "Noch nicht enthalten" in `docs/WABS.md`).
 
